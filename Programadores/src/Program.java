@@ -6,61 +6,17 @@ public class Program {
 
     public static void main(String[] args) {
 
-        //Inciamos contructor
+        mostrarMenu();
 
-        Programador programador = new Programador("Adrián",22000,"java","python");
-        
-        //Iniciamos opcion a -1 para que entre en el bucle
-
-        int option = -1;
-
-        while (option != 4){
-
-            //Pedimos al usuario que introduzca la opción que quiera
-
-            System.out.println("\nBienvenido, "+ programador.getName()+ " que deseas hacer: \n1:Actualizar salario\n2:Actualizar lenguaje\n3:Mostrar datos\n4:Salir del programa");
-            Scanner sc = new Scanner(System.in);
-            option = sc.nextInt();
-
-            //Comprobamos las condiciones con los salarios y los lenguajes
-
-            if (option == 1){
-
-                System.out.println("Introduce tu nuevo salario (no puede ser menor al actual): ");
-                Scanner sc1 = new Scanner(System.in);
-                int getSalario = sc.nextInt();
-                programador.setSalario(getSalario);
-
-
-            } else if (option == 2) {
-                System.out.println("Introduce el nuevo lenguaje de programacion: ");
-                Scanner sc2 = new Scanner(System.in);
-                String newLanguage = sc2.nextLine();
-
-
-                if (Objects.equals(newLanguage, programador.getLenguajeSecundario())){
-
-                    programador.setLenguajeSecundario(programador.getLenguajePrincipal());
-                    programador.setLenguajePrincipal(newLanguage);
-
-                } else if (Objects.equals(newLanguage, programador.getLenguajePrincipal())) {
-                    System.out.println("El lenguaje introducido "+ newLanguage + " es igual al lenguaje principal "+ programador.getLenguajePrincipal());
-                } else{
-                    programador.setLenguajeSecundario(programador.getLenguajePrincipal());
-                    programador.setLenguajePrincipal(newLanguage);
-                }
-
-            } else if (option == 3) {
-
-                //Mostramos al usuario los datos guardados
-
-                System.out.println("Estos son los datos almacenados: ");
-                System.out.println("Nombre: "+programador.getName());
-                System.out.println("Salario: "+programador.getSalario());
-                System.out.println("Lenguaje Principal: "+programador.getLenguajePrincipal());
-                System.out.println("Lenguaje Secundario: "+programador.getLenguajeSecundario());
-
-            }
-        }
     }
+    public static void mostrarMenu() {
+        System.out.println("Escoge una opcion:");
+
+        System.out.println("1: Subir salario");
+        System.out.println("2: Actualizar lenguaje");
+        System.out.println("3: Mostrar datos");
+        System.out.println("4: Salir");
+    }
+
+
 }

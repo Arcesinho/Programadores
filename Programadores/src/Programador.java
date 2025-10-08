@@ -52,10 +52,46 @@ public class Programador {
 
     //Constructor
 
-    public Programador(String name, int salario, String lenguajePrincipal, String lenguajeSecundario) {
+    public Programador(String name, String lenguajePrincipal, String lenguajeSecundario) {
         this.name = name;
-        this.salario = salario;
+        this.salario = 22000;
         this.lenguajePrincipal = lenguajePrincipal;
         this.lenguajeSecundario = lenguajeSecundario;
     }
+
+    //Funciones
+
+    /**
+     *
+     * @param nuevoSalario
+     * @return -1 si el salario no se ha modificado. El nuevo salario si se ha modificado.
+     */
+    public int modificarSalario (int nuevoSalario){
+
+        if(this.salario <= nuevoSalario){
+            return -1;
+        }
+
+        this.salario = nuevoSalario;
+        return this.salario;
+    }
+    /**
+     *
+     * @param nuevoLenguaje
+     * @return true si se cambia y false si no
+     */
+    public boolean modificarLenguaje(String nuevoLenguaje){
+        //Si el nuevo lenguaje es igual al principal -> no hago nada
+        if (nuevoLenguaje.equals(this.lenguajePrincipal)){
+            return false;
+        }
+        //si el nuevo lenguaje no es el principal
+        //      -> El lenguaje principal pasa al secundario y el nuevo lenguaje pasa a ser principal
+        if(!nuevoLenguaje.equals(this.lenguajePrincipal)){
+            this.lenguajeSecundario = this.lenguajePrincipal;
+            this.lenguajePrincipal = nuevoLenguaje;
+        }
+        return true;
+    }
 }
+
