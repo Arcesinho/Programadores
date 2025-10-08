@@ -6,16 +6,23 @@ public class Program {
 
     public static void main(String[] args) {
 
-        Programador programador = new Programador("Adrián",22000,"java","python");
+        //Inciamos contructor
 
-        int option = 1;
+        Programador programador = new Programador("Adrián",22000,"java","python");
+        
+        //Iniciamos opcion a -1 para que entre en el bucle
+
+        int option = -1;
 
         while (option != 4){
-            String LenguajePrincipalOriginal = programador.getLenguajePrincipal();
+
+            //Pedimos al usuario que introduzca la opción que quiera
+
             System.out.println("\nBienvenido, "+ programador.getName()+ " que deseas hacer: \n1:Actualizar salario\n2:Actualizar lenguaje\n3:Mostrar datos\n4:Salir del programa");
             Scanner sc = new Scanner(System.in);
             option = sc.nextInt();
 
+            //Comprobamos las condiciones con los salarios y los lenguajes
 
             if (option == 1){
 
@@ -44,6 +51,8 @@ public class Program {
                 }
 
             } else if (option == 3) {
+
+                //Mostramos al usuario los datos guardados
 
                 System.out.println("Estos son los datos almacenados: ");
                 System.out.println("Nombre: "+programador.getName());
